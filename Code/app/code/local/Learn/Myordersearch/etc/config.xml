@@ -1,0 +1,57 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <Learn_Myordersearch>
+            <version>1.0.0</version>
+        </Learn_Myordersearch>
+    </modules>
+    <frontend>
+        <routers>
+            <myordersearch>
+                <use>standard</use>
+                <args>
+                    <module>Learn_Myordersearch</module>
+                    <frontName>myordersearch</frontName>
+                </args>
+            </myordersearch>
+        </routers>
+        <layout>
+            <updates>
+                <myordersearch>
+                    <file>learn/myordersearch.xml</file>
+                </myordersearch>
+            </updates>
+        </layout>
+    </frontend>
+    <global>
+        <models>
+            <myordersearch>
+                <class>Learn_Myordersearch_Model</class>
+            </myordersearch>
+        </models>
+        <blocks>
+            <myordersearch>
+                <class>Learn_Myordersearch_Block</class>
+            </myordersearch>
+            <sales>
+                <rewrite>
+                    <order_history>Learn_Myordersearch_Block_Order_History</order_history>
+                </rewrite>
+            </sales>
+        </blocks>
+        <helpers>
+            <myordersearch>
+                <class>Learn_Myordersearch_Helper</class>
+            </myordersearch>
+        </helpers>
+    </global>
+  
+	<default>
+		<myordersearch_tab>
+			<myordersearch_setting>
+				<myordersearch_active>1</myordersearch_active>
+			</myordersearch_setting>
+		</myordersearch_tab>
+	</default>
+    
+</config>

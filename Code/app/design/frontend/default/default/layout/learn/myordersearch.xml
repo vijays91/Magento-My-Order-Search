@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<layout version="0.1.0">
+
+    <sales_order_history>
+        <reference name="my.account.wrapper">
+            <reference name="sales.order.history">
+                <reference name="sales.order.history.info">
+                    <block type="myordersearch/myordersearch" name="myordersearch">
+                        <!-- template="myordersearch/search.phtml"  -->
+                 		<action method="setTemplate" ifconfig="myordersearch_tab/myordersearch_setting/myordersearch_active">
+                            <template helper="myordersearch/data/myordersearch_template" />
+                        </action>
+                    </block>
+                </reference>
+            </reference>
+        </reference>
+    </sales_order_history>
+    
+</layout> 

@@ -1,0 +1,35 @@
+<?php
+/*- Get All Sales Order Status -*/
+$order_status    = $this->getAllOrderStatus();
+$serach_status   = $this->getPostValue('myorder_status');
+$search_text     = $this->getPostValue('myorder_txt');
+$reset_url       = $this->resetUrl();
+?>
+<div class="my-search" id="my-search">
+    <form method="post" action="" id="search_myorder">
+        <div class="input-box">
+            <!-- <label for="search">Search:</label> required-entry -->
+            <input type="search" placeholder="Search text here..." maxlength="50" class="input-text myorder_txt" value="<?php echo $search_text; ?>" name="myorder_txt" id="search" autocomplete="off" style="width:40%;">
+            <select class="" name="myorder_status" id="myorder_status" style="height:40px;padding-right:30px;width:30%;">
+                <option value=""><?php echo $this->__('- All Status -');?></option>
+                <?php foreach($order_status as $status): 
+                    echo "<option value='".$status['status']."' ";
+                    echo ($status['status'] == $serach_status) ? " selected " : "";
+                    echo " >". $status['label']."</option>";                
+                    endforeach;
+                ?>
+            </select>
+            <button class="button search-button" title="Search" type="submit">
+                <span><span><?php echo $this->__('Search');?></span></span>
+            </button>
+             
+            <button class="button search-button" title="Search" type="button" onclick="location.href='<?php echo $reset_url; ?>'">
+                <span><span><?php echo $this->__('Reset');?></span></span>
+            </button>
+        </div>
+        <div class="search-autocomplete" id="search_autocomplete" style="display: none;"></div>
+        <script type="text/javascript">
+            var searchForm = new Varien.searchForm('search_myorder', 'search', '');
+        </script>
+    </form>
+</div>
